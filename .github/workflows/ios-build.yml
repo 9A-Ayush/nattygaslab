@@ -12,12 +12,22 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   # update checkout to latest
+        uses: actions/checkout@v4
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0' # adjust to your version
+          flutter-version: '3.35.4'   # ✅ upgraded Flutter (ships with Dart 3.8.1+)
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pub-cache
+            build
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
 
       - name: Install dependencies
         run: flutter pub get
@@ -32,7 +42,7 @@ jobs:
           zip -r Runner.ipa Payload
 
       - name: Upload IPA artifact
-        uses: actions/upload-artifact@v4   # ✅ updated version
+        uses: actions/upload-artifact@v4
         with:
           name: ios-build
           path: Runner.ipa
