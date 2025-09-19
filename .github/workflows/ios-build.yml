@@ -1,0 +1,38 @@
+name: Build iOS App
+
+on:
+  workflow_dispatch: # manual trigger
+  push:              # also runs when you push to main
+    branches:
+      - main
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0' # adjust to your version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build iOS (no codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Create IPA
+        run: |
+          mkdir Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r Runner.ipa Payload
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ios-build
+          path: Runner.ipa
