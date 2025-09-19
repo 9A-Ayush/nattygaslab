@@ -1,0 +1,49 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "chemicals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "manufacturer",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chemicals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "nameLowercase",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chemicals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "expiryDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chemicals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "quantity",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

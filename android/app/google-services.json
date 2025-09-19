@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "538315850223",
+    "project_id": "nattygaslab",
+    "storage_bucket": "nattygaslab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538315850223:android:5488e118bffada3f2a761a",
+        "android_client_info": {
+          "package_name": "com.example.nattygaslab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzrOCqF_WaK2bE-DrcMYVEKwP4EnIfvqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
