@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4   # update checkout to latest
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -32,7 +32,7 @@ jobs:
           zip -r Runner.ipa Payload
 
       - name: Upload IPA artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4   # ✅ updated version
         with:
           name: ios-build
           path: Runner.ipa
